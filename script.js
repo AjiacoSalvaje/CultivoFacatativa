@@ -7,3 +7,8 @@ const productos=[{nombre:"Manzanas",precio:8e3,imagen:"https://th.bing.com/th/id
     <p>${e.nombre} - $${e.precio.toLocaleString("es-CO")} COP / kg</p>
     <button class="remove-from-cart" data-index="${r}">Eliminar</button>
   `,t.appendChild(i)});let e=document.createElement("div");e.classList.add("total"),e.innerHTML=`<h3>Total: $${a.toLocaleString("es-CO")} COP</h3>`,t.appendChild(e);let r=document.createElement("button");r.classList.add("comprar-btn"),r.innerText="Comprar",t.appendChild(r),r.addEventListener("click",()=>{alert(`Gracias por tu compra. El total es $${a.toLocaleString("es-CO")} COP`),carrito=[],actualizarCarrito()})}}function eliminarDelCarrito(t){carrito.splice(t,1),actualizarCarrito()}document.addEventListener("click",t=>{t.target.classList.contains("add-to-cart")&&agregarAlCarrito(t.target.getAttribute("data-index")),t.target.classList.contains("remove-from-cart")&&eliminarDelCarrito(t.target.getAttribute("data-index"))}),mostrarProductos();
+
+  if (typeof module !== 'undefined') {
+    module.exports = { agregarAlCarrito, eliminarDelCarrito, carrito };
+  }
+  
